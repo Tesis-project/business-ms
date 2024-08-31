@@ -18,11 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
   },
-    "include": ["src/**/*.ts", "mikro-orm.config.ts"],
+  "include": ["src/**/*.ts", "src/mikro-orm.config.ts"],
   "watchOptions": {
     "watchFile": "dynamicPriorityPolling",
     "watchDirectory": "dynamicPriorityPolling",
     "excludeDirectories": ["**/node_modules", "dist"]
   }
-
 }

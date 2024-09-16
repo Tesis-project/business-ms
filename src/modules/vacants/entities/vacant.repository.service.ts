@@ -1,12 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { EntityManager, EntityRepository } from '@mikro-orm/postgresql';
+import { EntityRepository, EntityManager } from "@mikro-orm/core";
+import { Injectable } from "@nestjs/common";
+import { Vacant_Ety } from "./vacant.entity";
+import { Pagination_I, pagination_meta } from "@tesis-project/dev-globals/dist/core/helpers";
+import { _Process_Save_I, _Find_Many_I, _Process_Delete_I, _Process_Update_I } from "@tesis-project/dev-globals/dist/core/interfaces";
 
 import { Pagination_Dto } from '@tesis-project/dev-globals/dist/core/dto';
-
-import { Pagination_I, pagination_meta } from '@tesis-project/dev-globals/dist/core/helpers';
-import { _Find_Many_I, _Find_One_I, _Process_Delete_I, _Process_Save_I, _Process_Update_I } from '@tesis-project/dev-globals/dist/core/interfaces';
-import { Vacant_Ety } from './vacant.entity';
-
 
 @Injectable()
 export class Vacant_Repository extends EntityRepository<Vacant_Ety> {

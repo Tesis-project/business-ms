@@ -1,0 +1,451 @@
+{
+  "namespaces": [
+    "public"
+  ],
+  "name": "public",
+  "tables": [
+    {
+      "columns": {
+        "_id": {
+          "name": "_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "mappedType": "uuid"
+        },
+        "vacant_pic": {
+          "name": "vacant_pic",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 255,
+          "mappedType": "string"
+        },
+        "desc": {
+          "name": "desc",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'OPEN'",
+          "enumItems": [
+            "OPEN",
+            "CLOSED",
+            "EXPIRED",
+            "INPROGRESS"
+          ],
+          "mappedType": "enum"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "operation": {
+          "name": "operation",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'{\"start_at\":\"\",\"end_at\":\"\"}'",
+          "mappedType": "json"
+        },
+        "role_desc": {
+          "name": "role_desc",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "role_type": {
+          "name": "role_type",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'[\"SINGER\"]'",
+          "mappedType": "json"
+        },
+        "transport_service": {
+          "name": "transport_service",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "housing_service": {
+          "name": "housing_service",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "vacant_costs": {
+          "name": "vacant_costs",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "vacant_payment": {
+          "name": "vacant_payment",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'{\"total\":0,\"currency\":\"USD\"}'",
+          "mappedType": "json"
+        },
+        "direction": {
+          "name": "direction",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "specific_conditions": {
+          "name": "specific_conditions",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "text"
+        },
+        "owner": {
+          "name": "owner",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 255,
+          "mappedType": "string"
+        }
+      },
+      "name": "vacants",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "vacants_pkey",
+          "columnNames": [
+            "_id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "_id": {
+          "name": "_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "mappedType": "uuid"
+        },
+        "contratist": {
+          "name": "contratist",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "json"
+        },
+        "contractor": {
+          "name": "contractor",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "json"
+        },
+        "details": {
+          "name": "details",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'PLANNING'",
+          "enumItems": [
+            "PLANNING",
+            "SINGS_PENDING",
+            "IN_PROGRESS",
+            "CANCELLED",
+            "COMPLETED"
+          ],
+          "mappedType": "enum"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "vacant__id": {
+          "name": "vacant__id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        }
+      },
+      "name": "contracts",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "vacant__id"
+          ],
+          "composite": false,
+          "keyName": "contracts_vacant__id_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "contracts_pkey",
+          "columnNames": [
+            "_id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "contracts_vacant__id_foreign": {
+          "constraintName": "contracts_vacant__id_foreign",
+          "columnNames": [
+            "vacant__id"
+          ],
+          "localTableName": "public.contracts",
+          "referencedColumnNames": [
+            "_id"
+          ],
+          "referencedTableName": "public.vacants",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "_id": {
+          "name": "_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "mappedType": "uuid"
+        },
+        "comment": {
+          "name": "comment",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "text"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'SENDED'",
+          "enumItems": [
+            "SENDED",
+            "ON_HOLD",
+            "ACCEPTED",
+            "CONTRACT_SENT",
+            "REFUSED"
+          ],
+          "mappedType": "enum"
+        },
+        "owner_comment": {
+          "name": "owner_comment",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "text"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamptz",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "default": "'2024-09-13 11:15:56'",
+          "mappedType": "datetime"
+        },
+        "vacant__id": {
+          "name": "vacant__id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "uuid"
+        },
+        "user_postulate": {
+          "name": "user_postulate",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 255,
+          "mappedType": "string"
+        }
+      },
+      "name": "postulations",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "postulations_pkey",
+          "columnNames": [
+            "_id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "postulations_vacant__id_foreign": {
+          "constraintName": "postulations_vacant__id_foreign",
+          "columnNames": [
+            "vacant__id"
+          ],
+          "localTableName": "public.postulations",
+          "referencedColumnNames": [
+            "_id"
+          ],
+          "referencedTableName": "public.vacants",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    }
+  ],
+  "nativeEnums": {}
+}

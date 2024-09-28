@@ -3,11 +3,9 @@ import { TempoHandler } from "@tesis-project/dev-globals/dist/core/classes";
 import { _Response_I } from "@tesis-project/dev-globals/dist/core/interfaces";
 import uniqid from 'uniqid';
 import { contracts_extraServices } from "./contracts-extraServices";
-import { Contract_I } from "@tesis-project/dev-globals/dist/modules/business/contracts/interfaces";
-import { Vacant_I } from "@tesis-project/dev-globals/dist/modules/business/vacants/interfaces";
 import { Contract_Ety } from "../entities/contract.entity";
 import { User_HiringData_I, User_I } from "@tesis-project/dev-globals/dist/modules/user/interfaces";
-import { Meta_Artist_I, Meta_Contratist_I, MetaRole_I, Profile_I } from "@tesis-project/dev-globals/dist/modules/profile/interfaces";
+import { Meta_Contratist_I, MetaRole_I, Profile_I } from "@tesis-project/dev-globals/dist/modules/profile/interfaces";
 
 @Injectable()
 export class ContractsHelpersService {
@@ -71,14 +69,11 @@ export class ContractsHelpersService {
 
     _TempoHandler = new TempoHandler();
 
-
     constructor(
         private readonly _contracts_extraServices: contracts_extraServices
     ) {
 
     }
-
-
 
     line() {
         //Usually one would use a canvas to draw the line
@@ -121,17 +116,13 @@ export class ContractsHelpersService {
         const user_contratist = contract.contratist.user as User_I;
         const user_contractor = contract.contractor.user as User_I;
 
-        // const hiring_data_contratist = user_contractor.hiring_data as User_HiringData_I;
         const hiring_data_contractor = user_contratist.hiring_data as User_HiringData_I;
 
         const profile_contratist = user_contratist.profile as Profile_I;
-        // const profile_conractor = user_contractor.profile as Profile_I;
 
         const meta_contratist = (profile_contratist.meta as MetaRole_I).meta_contratist as Meta_Contratist_I;
 
         const personal_contractor = hiring_data_contractor.personal;
-
-        console.log('personal_contractor', personal_contractor);
 
         const eventData = await this._contracts_extraServices.set_eventData(vacant);
 
@@ -150,7 +141,7 @@ export class ContractsHelpersService {
         }
         const set_contractorData = () => {
             return {
-                artistName: (personal_contractor.social_reason) ? personal_contractor.social_reason: `${user_contractor.name || ''} ${user_contractor.last_name || ''}`,
+                artistName: (personal_contractor.social_reason) ? personal_contractor.social_reason : `${user_contractor.name || ''} ${user_contractor.last_name || ''}`,
                 rif: personal_contractor.rif,
                 direction: {
                     addres: personal_contractor.address,
@@ -187,7 +178,7 @@ export class ContractsHelpersService {
             {
                 text: 'MELODIFY APP | CONTRATO DE TRABAJO',
                 style: 'principal',
-                  alignment: 'left',
+                alignment: 'left',
                 margin: [0, 0, 0, 5]
             },
             this.line(),
@@ -247,7 +238,7 @@ export class ContractsHelpersService {
                                 [
                                     {
                                         text: [
-                                       `${set_contratistData().direction.state}`,
+                                            `${set_contratistData().direction.state}`,
                                         ],
                                         style: 'textTable',
                                         color: 'grey'
@@ -334,7 +325,7 @@ export class ContractsHelpersService {
                                 [
                                     {
                                         text: [
-                                          set_contractorData().direction.state
+                                            set_contractorData().direction.state
                                         ],
                                         style: 'textTable',
                                         color: 'grey'
@@ -777,7 +768,7 @@ export class ContractsHelpersService {
                                 ],
                                 [
                                     {
-                                   text: `${user_contractor.name} ${user_contractor.last_name}`,
+                                        text: `${user_contractor.name} ${user_contractor.last_name}`,
                                         alignment: 'center',
                                         style: 'text',
                                     },
@@ -898,7 +889,6 @@ export class ContractsHelpersService {
 
         }
 
-
         _Response = {
             ok: true,
             statusCode: 200,
@@ -907,7 +897,6 @@ export class ContractsHelpersService {
             },
             message: 'Modelo de contrato generado'
         }
-
 
         return _Response;
 

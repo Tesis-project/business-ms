@@ -221,7 +221,6 @@ export class ContractsService {
 
         }
 
-
         return _Response;
 
     }
@@ -397,6 +396,7 @@ export class ContractsService {
             }
 
             const contractor = await this._UserService_GW.get_user(contract.contractor.user as string);
+
             const contratist = await this._UserService_GW.get_user(contract.contratist.user as string);
 
             contract = {
@@ -413,7 +413,6 @@ export class ContractsService {
                         ...contratist.data
                     } as User_I
                 },
-
             }
 
             _Response = {
@@ -510,7 +509,6 @@ export class ContractsService {
             this.ExceptionsHandler.EmitException(error, `${this.service}.get_all`);
 
         }
-
 
         return _Response;
 

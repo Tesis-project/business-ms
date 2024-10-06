@@ -116,7 +116,7 @@ export class ContractsHelpersService {
         const user_contratist = contract.contratist.user as User_I;
         const user_contractor = contract.contractor.user as User_I;
 
-        const hiring_data_contractor = user_contratist.hiring_data as User_HiringData_I;
+        const hiring_data_contractor = user_contractor.hiring_data as User_HiringData_I;
 
         const profile_contratist = user_contratist.profile as Profile_I;
 
